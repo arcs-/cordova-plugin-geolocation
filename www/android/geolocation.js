@@ -59,6 +59,10 @@ module.exports = {
         return pluginWatchId;
     },
 
+    askAlways: function () {
+        // android does not need this permission => do nothing
+    },
+
     clearWatch: function (pluginWatchId) {
         var win = function () {
             var nativeWatchId = pluginToNativeWatchMap[pluginWatchId];
@@ -68,4 +72,5 @@ module.exports = {
 
         exec(win, null, 'Geolocation', 'getPermission', []);
     }
+
 };
